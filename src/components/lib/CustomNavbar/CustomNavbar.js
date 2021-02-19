@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 
 const CustomNavbar = (props) => {
-  const [activeKey, setActiveKey] = useState('/');
+  const [activeKey, setActiveKey] = useState('/home');
 
   const handleSelect = (eventKey, e) => {
-    e.preventDefault();
+    //e.preventDefault();
     setActiveKey(eventKey);
+    console.log(eventKey)
   }
 
   return (
@@ -14,12 +16,13 @@ const CustomNavbar = (props) => {
         <Nav onSelect={handleSelect} 
           className="justify-content-around" 
           style={{width: "100rem"}} 
+          defaultActiveKey="/"
           activeKey={activeKey}
         >
-          <Nav.Link href="/" eventKey="home">Home</Nav.Link>
-          <Nav.Link href="#ingredients" eventKey="ingredients">Ingredients</Nav.Link>
-          <Nav.Link href="#saved" eventKey="saved">Saved</Nav.Link>
-          <Nav.Link href="#profile" eventKey="profile">Profile</Nav.Link>
+          <Nav.Link as={NavLink} exact to="/" eventKey="home">Home</Nav.Link>
+          <Nav.Link as={NavLink} to="/ingredients" eventKey="ingredients">Ingredients</Nav.Link>
+          <Nav.Link as={NavLink} to="/saved" eventKey="saved">Saved</Nav.Link>
+          <Nav.Link as={NavLink} to="/profile" eventKey="profile">Profile</Nav.Link>
         </Nav>
       </Navbar>
   )

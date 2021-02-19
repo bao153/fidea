@@ -1,0 +1,19 @@
+.form-label {
+  text-align: initial;
+}
+
+.form-group {
+  margin: 2rem;
+}
+
+.form-file {
+  margin: 2rem;
+}
+
+.ingredients-container {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  height: 37rem;
+  overflow: auto;
+}

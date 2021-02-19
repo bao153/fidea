@@ -1,18 +1,6 @@
 .card {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  background-color: white;
-  margin: 1rem;
-  height: 13rem;
   flex: 0 1 40%;
-}
-
-.cards {
-  padding-top: 1rem;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  flex-direction: row;
-  height: 37rem;
-  overflow: auto;
+  margin: 1rem;
 }

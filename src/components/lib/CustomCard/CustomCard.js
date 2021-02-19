@@ -5,10 +5,12 @@ import './CustomCard.css';
 
 const CustomCard = (props) => {
   return (
-    <Card style={{ width: '10rem' }}>
+    <Card 
+      bg={props.variant ? props.variant.toLowerCase() : null}
+    >
     <Card.Body>
-      <Card.Title>Recipe Name</Card.Title>
-      <Card.Text>Cook Time: 10s</Card.Text>
+      <Card.Title>{props.title}</Card.Title>
+      <Card.Text>{props.text}</Card.Text>
       <Button variant="primary">Go somewhere</Button>
     </Card.Body>
   </Card>
