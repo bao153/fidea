@@ -6,7 +6,6 @@ const CustomNavbar = (props) => {
   const [activeKey, setActiveKey] = useState('/home');
 
   const handleSelect = (eventKey, e) => {
-    //e.preventDefault();
     setActiveKey(eventKey);
     console.log(eventKey)
   }
@@ -22,10 +21,10 @@ const CustomNavbar = (props) => {
         <Navbar.Collapse className="justify-content-left">
           <Nav onSelect={handleSelect} 
             className="justify-content-around" 
-            defaultActiveKey="/"
+            defaultActiveKey="/home"
             activeKey={activeKey}
           >
-            <Nav.Link as={NavLink} exact to="/" eventKey="home">Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/home" eventKey="home">Home</Nav.Link>
             <Nav.Link as={NavLink} to="/ingredients" eventKey="ingredients">Ingredients</Nav.Link>
             <Nav.Link as={NavLink} to="/saved" eventKey="saved">Saved</Nav.Link>
             <Nav.Link as={NavLink} to="/profile" eventKey="profile">Profile</Nav.Link>

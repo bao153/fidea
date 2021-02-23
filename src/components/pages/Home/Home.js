@@ -11,26 +11,31 @@ import CustomCard from '../../lib/CustomCard/CustomCard';
 const Home = (props) => {
   const recipes = [
     {
+      id: 1,
       name: 'Garlic Butter Wings',
       time: '10min'
     },
     {
+      id: 2,
       name: 'Garlic Fish Sauce Wings',
       time: '10min'
     },
     {
+      id: 3,
       name: 'Garlic Chive Wings',
       time: '10min'
     },
     {
+      id: 4,
       name: 'Garlic BBQ Wings',
       time: '10min'
     },
     {
+      id: 5,
       name: 'Garlic Bacon Wings',
       time: '10min'
     }
-  ].map((recipe, idx) => <CustomCard title={recipe.name} text={recipe.time}/>);
+  ].map((recipe, idx) => <CustomCard key={recipe.id} title={recipe.name} text={recipe.time}/>);
   return (
     <div className='Home'>
       <CustomJumbotron text="Home" />
