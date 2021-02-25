@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import "./Home.css";
 
@@ -9,39 +9,40 @@ import CustomCard from '../../lib/CustomCard/CustomCard';
 //import Button from 'react-bootstrap/Button';
 
 const Home = (props) => {
-  const recipes = [
-    {
-      id: 1,
-      name: 'Garlic Butter Wings',
-      time: '10min'
-    },
-    {
-      id: 2,
-      name: 'Garlic Fish Sauce Wings',
-      time: '10min'
-    },
-    {
-      id: 3,
-      name: 'Garlic Chive Wings',
-      time: '10min'
-    },
-    {
-      id: 4,
-      name: 'Garlic BBQ Wings',
-      time: '10min'
-    },
-    {
-      id: 5,
-      name: 'Garlic Bacon Wings',
-      time: '10min'
+  const [ recipesData, setRecipesData ] = useState([]);
+
+  useEffect(() => {
+    fetchRecipes();
+  }, []);
+
+  const fetchRecipes = () => {
+    fetch('/data/recipes.json'
+    ,{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+       }
     }
-  ].map((recipe, idx) => <CustomCard key={recipe.id} title={recipe.name} text={recipe.time}/>);
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => {
+        let newRecipesData = [...myJson];
+        setRecipesData(newRecipesData);
+      });
+  }
+
   return (
     <div className='Home'>
-      <CustomJumbotron text="Home" />
+      <CustomJumbotron text="Fidea" />
       <div className="home-container">
         <div className="recipe-cards">
-          {recipes}
+          {
+            recipesData && recipesData.map((recipe, idx)=> {
+              return <CustomCard key={idx} title={recipe.name} text={recipe.cook_time}/>
+            })
+          }
         </div>
       </div>
       <CustomNavbar />

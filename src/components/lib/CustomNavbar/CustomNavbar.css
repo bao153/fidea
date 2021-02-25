@@ -1,0 +1,26 @@
+.navbar {
+  display: block;
+}
+
+.nav-link img {
+  width:20px;
+}
+
+.ingredients-link img {
+  width: 27px !important;
+}
+
+.nav-link {
+  border-radius: 5px;
+  transition: background-color 0.5s;
+}
+
+.nav-link:hover {
+  background-color: #89c2ff;
+  box-shadow: 1px 3px 4px#15030a;
+}
+
+.nav-link.active {
+  background-color: #007bff;
+  box-shadow: 1px 3px 4px #15030a;
+}

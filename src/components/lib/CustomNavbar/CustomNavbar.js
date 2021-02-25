@@ -2,6 +2,12 @@ import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 
+import "./CustomNavbar.css";  
+import homeIcon from '../../../assets/home.png';
+import ingredientsIcon from '../../../assets/ingredients.png';
+import savedIcon from '../../../assets/saved.png';
+import profileIcon from '../../../assets/profile.png';
+
 const CustomNavbar = (props) => {
   const [activeKey, setActiveKey] = useState('/home');
 
@@ -12,24 +18,31 @@ const CustomNavbar = (props) => {
 
   return (
       <Navbar 
-        collapseOnSelect
+        //collapseOnSelect
         bg="dark" variant="dark" 
         fixed="bottom"
-        expand="sm"
       >
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-left">
+        {/*<Navbar.Toggle />*/}
+        {/*<Navbar.Collapse className="justify-content-left">*/}
           <Nav onSelect={handleSelect} 
             className="justify-content-around" 
             defaultActiveKey="/home"
             activeKey={activeKey}
           >
-            <Nav.Link as={NavLink} to="/home" eventKey="home">Home</Nav.Link>
-            <Nav.Link as={NavLink} to="/ingredients" eventKey="ingredients">Ingredients</Nav.Link>
-            <Nav.Link as={NavLink} to="/saved" eventKey="saved">Saved</Nav.Link>
-            <Nav.Link as={NavLink} to="/profile" eventKey="profile">Profile</Nav.Link>
+            <Nav.Link as={NavLink} to="/home" eventKey="home">
+              <img src={homeIcon} />
+            </Nav.Link>
+            
+            <Nav.Link className="ingredients-link" as={NavLink} to="/ingredients" eventKey="ingredients">
+              <img src={ingredientsIcon} /></Nav.Link>
+
+            <Nav.Link as={NavLink} to="/saved" eventKey="saved">
+              <img src={savedIcon} /></Nav.Link>
+
+            <Nav.Link as={NavLink} to="/profile" eventKey="profile">
+              <img src={profileIcon} /></Nav.Link>
           </Nav>
-        </Navbar.Collapse>
+        {/*</Navbar.Collapse>*/}
       </Navbar>
   )
 }

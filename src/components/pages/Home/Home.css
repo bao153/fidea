@@ -1,8 +1,9 @@
 .recipe-cards {
+  /*padding-top: 2rem;*/
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 29rem;
+  height: 32rem;
   overflow: auto;
 }
