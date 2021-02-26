@@ -4,9 +4,8 @@ import "./Home.css";
 
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
-import CustomCard from '../../lib/CustomCard/CustomCard';
-//import Card from 'react-bootstrap/Card';
-//import Button from 'react-bootstrap/Button';
+import RecipeCard from '../../lib/RecipeCard/RecipeCard';
+
 
 const Home = (props) => {
   const [ recipesData, setRecipesData ] = useState([]);
@@ -25,6 +24,7 @@ const Home = (props) => {
     }
     )
       .then((response) => {
+        console.log(response);
         return response.json();
       })
       .then((myJson) => {
@@ -40,7 +40,7 @@ const Home = (props) => {
         <div className="recipe-cards">
           {
             recipesData && recipesData.map((recipe, idx)=> {
-              return <CustomCard key={idx} image={recipe.image} title={recipe.name} text={recipe.cook_time}/>
+              return <RecipeCard key={idx} id={idx} image={recipe.image} title={recipe.name} text={recipe.cook_time}/>
             })
           }
         </div>

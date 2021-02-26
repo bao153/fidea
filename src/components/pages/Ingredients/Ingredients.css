@@ -3,7 +3,7 @@
 }
 
 .form-group {
-  margin: 2rem;
+  margin: 2rem 0.5rem;
 }
 
 .form-file {
@@ -15,5 +15,10 @@
   flex-wrap: wrap;
   flex-direction: row;
   height: 32rem;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.input-group {
+  width: auto;
 }
