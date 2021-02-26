@@ -18,12 +18,9 @@ const CustomNavbar = (props) => {
 
   return (
       <Navbar 
-        //collapseOnSelect
         bg="dark" variant="dark" 
         fixed="bottom"
       >
-        {/*<Navbar.Toggle />*/}
-        {/*<Navbar.Collapse className="justify-content-left">*/}
           <Nav onSelect={handleSelect} 
             className="justify-content-around" 
             defaultActiveKey="/home"
@@ -42,7 +39,6 @@ const CustomNavbar = (props) => {
             <Nav.Link as={NavLink} to="/profile" eventKey="profile">
               <img src={profileIcon} /></Nav.Link>
           </Nav>
-        {/*</Navbar.Collapse>*/}
       </Navbar>
   )
 }

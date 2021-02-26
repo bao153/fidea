@@ -45,7 +45,6 @@ const Ingredients = (props) => {
       const input = document.getElementById("ingredient-to-add");
       const ingredientAdded = input.value;
       ingredientCards.push({item: ingredientAdded, amount: '20kg'});
-      console.log(ingredientCards);
       document.getElementById("ingredient-to-add").value = "";
     }
 
