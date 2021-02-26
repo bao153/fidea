@@ -8,6 +8,7 @@ import Ingredients from './components/pages/Ingredients/Ingredients';
 import Saved from './components/pages/Saved/Saved';
 import Profile from './components/pages/Profile/Profile';
 import Login from './components/pages/Login/Login';
+import Recipe from './components/pages/Recipe/Recipe';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path='/saved' component={Saved}/>
       <Route path='/profile' component={Profile}/>
       <Route path='/home' component={Home}/>
+      <Route path='/recipe/:recipeId/' component={Recipe}/>
     </div>
   );
 }

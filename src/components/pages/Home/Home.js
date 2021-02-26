@@ -40,7 +40,7 @@ const Home = (props) => {
         <div className="recipe-cards">
           {
             recipesData && recipesData.map((recipe, idx)=> {
-              return <CustomCard key={idx} title={recipe.name} text={recipe.cook_time}/>
+              return <CustomCard key={idx} image={recipe.image} title={recipe.name} text={recipe.cook_time}/>
             })
           }
         </div>

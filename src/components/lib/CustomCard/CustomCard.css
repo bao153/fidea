@@ -1,6 +1,31 @@
 .card {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  flex: 0 1 40%;
   margin: 1rem;
+}
+
+.card-body {
+  transition: all 0.5s;
+}
+
+.card-body:hover {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+}
+
+.recipe-btn {
+  background-color: #fff;
+}
+
+.recipe-btn:hover {
+  background-color: #89c2ff;
+}
+
+.recipe-btn:active {
+  background-color: #89c2ff !important;
+}
+
+.recipe-btn > img {
+  border-radius: 0.5rem;
+  max-width: 70%;
 }
