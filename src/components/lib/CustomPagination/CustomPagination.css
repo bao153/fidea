@@ -1,0 +1,17 @@
+.pagination-list {
+  padding-inline-start: 0;
+  margin-bottom: 6rem;
+  list-style: none; 
+  display: inline-flex;
+}
+
+.pagination-item {
+  font-size: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.pagination-item:hover {
+  transform: scale(1.4);
+}

@@ -58,17 +58,17 @@ const Ingredients = (props) => {
     <div className="Ingredients">
       <CustomJumbotron text="Ingredients" />
       <div className="ingredients-container">
-      <InputGroup className="mt-5 mb-5 mx-3">
-        <FormControl
-          type="text"
-          onKeyPress={handleEnter}
-          id="ingredient-to-add"
-          placeholder="Enter your ingredient"
-        />
-        <InputGroup.Append>
-          <Button onClick={handleAdd} variant="outline-success">Add to Pantry</Button>
-        </InputGroup.Append>
-      </InputGroup>
+        <InputGroup className="mt-5 mb-5 mx-3">
+          <FormControl
+            type="text"
+            onKeyPress={handleEnter}
+            id="ingredient-to-add"
+            placeholder="Enter your ingredient"
+          />
+          <InputGroup.Append>
+            <Button onClick={handleAdd} variant="outline-primary">Add to Pantry</Button>
+          </InputGroup.Append>
+        </InputGroup>
         {/*<Form>
           <Form.Row className="align-items-center">
             <Col xs="auto">

@@ -6,7 +6,9 @@ import './CustomJumbotron.css';
 const CustomJumbotron = (props) => {
   return (
     <Jumbotron id="jumbotron">
-      <div>{props.text}</div>
+      <div
+        style={props.text && props.text.split(' ').length > 4 ? { fontSize: 1.1 + "rem"} : null}
+      >{props.text}</div>
     </Jumbotron>
   )
 }

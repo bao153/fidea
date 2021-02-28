@@ -27,72 +27,74 @@ const Login = (props) => {
   }
 
   return (
-    <LoginModal
-        mainWrapClass="login-modal"
-        overlayClass="login-overlay"
-        additionalWrap="wrapper"
-        visible={isVisible}
-        error={error}
-        tabs={{
-          afterChange: afterTabsChange
-        }}
-        closeBtn={{
-          containerClass: "close-btn"
-        }}
-        form={{
-          onLogin: handleSubmit,
-          onRegister: handleSubmit,
-          loginBtn:{
-            buttonClass: "login-btn",
-            label: "Sign in"
-          },
-          registerBtn:{
-            buttonClass: "register-btn",
-            label: "Sign Up"
-          },
-          loginContainerClass: "login-container",
-          loginInputs:[
-            {
-              containerClass:"login-email",
-              type:"email",
-              id:"email",
-              placeholder:"Enter your email",
-              label:"Email"
+    <div className="Login">
+      <LoginModal
+          mainWrapClass="login-modal"
+          overlayClass="login-overlay"
+          additionalWrap="wrapper"
+          visible={isVisible}
+          error={error}
+          tabs={{
+            afterChange: afterTabsChange
+          }}
+          closeBtn={{
+            containerClass: "close-btn"
+          }}
+          form={{
+            onLogin: handleSubmit,
+            onRegister: handleSubmit,
+            loginBtn:{
+              buttonClass: "login-btn",
+              label: "Sign in"
             },
-            {
-              containerClass:"login-password",
-              type:"password",
-              id:"password",
-              placeholder:"Enter your password",
-              label:"Password"
-            }
-          ],
-          registerInputs:[
-            {
-              containerClass:"register-email",
-              type:"email",
-              id:"email",
-              placeholder:"Register your email",
-              label:"Email"
+            registerBtn:{
+              buttonClass: "register-btn",
+              label: "Sign Up"
             },
-            {
-              containerClass:"register-password",
-              type:"password",
-              id:"password",
-              placeholder:"Register your password",
-              label:"Password"
-            }
-          ]
-        }}
-        loginError={{
-          containerClass:"login-error",
-          label:"Invalid credentials. Please try again."
-        }}
-        registerError={{
-          containerClass:"register-error",
-          label:"Invalid credentials. Please try again."
-        }}
-    />
+            loginContainerClass: "login-container",
+            loginInputs:[
+              {
+                containerClass:"login-email",
+                type:"email",
+                id:"email",
+                placeholder:"Enter your email",
+                label:"Email"
+              },
+              {
+                containerClass:"login-password",
+                type:"password",
+                id:"password",
+                placeholder:"Enter your password",
+                label:"Password"
+              }
+            ],
+            registerInputs:[
+              {
+                containerClass:"register-email",
+                type:"email",
+                id:"email",
+                placeholder:"Register your email",
+                label:"Email"
+              },
+              {
+                containerClass:"register-password",
+                type:"password",
+                id:"password",
+                placeholder:"Register your password",
+                label:"Password"
+              }
+            ]
+          }}
+          loginError={{
+            containerClass:"login-error",
+            label:"Invalid credentials. Please try again."
+          }}
+          registerError={{
+            containerClass:"register-error",
+            label:"Invalid credentials. Please try again."
+          }}
+      />
+    </div>
   )
 }
 
