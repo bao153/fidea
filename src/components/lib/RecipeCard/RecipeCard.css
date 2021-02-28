@@ -11,7 +11,6 @@
 
 .recipe-card .card-body {
   transition: all 1s;
-  height: 10%;
 }
 
 .recipe-card .card-text {

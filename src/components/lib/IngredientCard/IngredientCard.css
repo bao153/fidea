@@ -1,14 +1,24 @@
-.card {
+.ingredient-card {
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  margin: 1rem;
+  margin: -2rem 4rem 1rem 4rem;
+  transition: all 0.5s ease-in-out;
 }
 
-.card-body {
+.ingredient-card.active {
+  background-color: #007bff !important;
+  color: #fff;
+}
+
+.ingredient-card:hover {
+  transform: scale(1.1);
+}
+
+.ingredient-card .card-body {
   transition: all 0.5s;
 }
 
-.card-body:hover {
+.ingredient-card .card-body:hover {
   box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
   border-radius: 0.5rem;
 }

@@ -32,25 +32,24 @@ const Recipe = (props) => {
         let newRecipesData = [...myJson];
         setRecipesData(newRecipesData);
         setRecipe(newRecipesData[recipeId]);
-        console.log(newRecipesData[recipeId].name.split(" ").length);
       });
   }
 
 
   return (
     <div className="recipe">
-      <CustomJumbotron 
+      <CustomJumbotron
         text={recipe.name} 
       />
       <div className="recipe-container">
-        {/*<div className="description">{recipe.description}</div>*/}
-        <p>Ingredients:</p>
+        <p style={{fontWeight: "bold"}}>Ingredients:</p>
         <p>{recipe.ingredients}</p>
         <br/>
-        <p>Cooking Time:</p>
+        <p style={{fontWeight: "bold"}}>Cooking Time:</p>
         <p>{recipe.cook_time}</p>
         <br/>
-        <p>Instructions: {recipe.instructions} </p>
+        <p style={{fontWeight: "bold"}}>Instructions: </p>
+        <p>{recipe.instructions}</p>
       </div>
       <CustomNavbar />
     </div>

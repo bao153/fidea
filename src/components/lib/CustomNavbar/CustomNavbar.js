@@ -36,8 +36,8 @@ const CustomNavbar = (props) => {
             <Nav.Link as={NavLink} to="/saved" eventKey="saved">
               <img src={savedIcon} /></Nav.Link>
 
-            <Nav.Link as={NavLink} to="/profile" eventKey="profile">
-              <img src={profileIcon} /></Nav.Link>
+            {/*<Nav.Link as={NavLink} to="/profile" eventKey="profile">
+              <img src={profileIcon} /></Nav.Link>*/}
           </Nav>
       </Navbar>
   )

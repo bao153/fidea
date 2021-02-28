@@ -1,50 +1,32 @@
-import React from 'react';
-import Form from 'react-bootstrap/Form';
+import React, { useState } from 'react';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import algoliasearch from 'algoliasearch/lite';
 
 import "./Ingredients.css";
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import IngredientCard from '../../lib/IngredientCard/IngredientCard';
 
+const client = algoliasearch(
+    process.env.REACT_APP_ALGOLIA_ID, 
+    process.env.REACT_APP_ALGOLIA_API_KEY);
+const index = client.initIndex("fidea_recipes");
+
 const Ingredients = (props) => {
-  const ingredientCards = [
-    {
-      item: 'Garlic',
-      amount: '10kg'
-    },
-    {
-      item: 'Chive',
-      amount: '10kg'
-    },
-    {
-      item: 'Fish sauce',
-      amount: '10kg'
-    },
-    {
-      item: 'Wings',
-      amount: '10kg'
-    },
-    {
-      item: 'Bacon',
-      amount: '10kg'
-    }
-  ].map((ingredient, idx) => 
-    <IngredientCard
-      key={idx}
-      variant="light" 
-      title={ingredient.item} 
-    /> 
-    );
+  const [ ingredientQuery, setIngredientQuery ] = useState("");
+  const [ recipesQueried, setRecipesQueried ] = useState(null);
+  const [ showSearchModal, setShowSearchModal ] = useState(false);
+  const [ ingredients, setIngredients ] = useState([{item: "chicken"}, {item: "tomato"}]);
 
     const handleAdd = (e) => {
       e.preventDefault();
-      const input = document.getElementById("ingredient-to-add");
-      const ingredientAdded = input.value;
-      ingredientCards.push({item: ingredientAdded, amount: '20kg'});
+      const ingredientAdded = document.getElementById("ingredient-to-add").value;
+      let newIngredients = [...ingredients];
+      newIngredients.push({item: ingredientAdded});
+      setIngredients(newIngredients);
       document.getElementById("ingredient-to-add").value = "";
     }
 
@@ -54,8 +36,30 @@ const Ingredients = (props) => {
       }
     }
 
+    const handleSearch = (e) => {
+      console.log(ingredientQuery.trim());
+      if (ingredientQuery.trim()) {
+        console.log('searching...')
+        index.search(ingredientQuery).then(({ hits }) => {
+          console.log(hits);
+          setRecipesQueried(hits);
+        });
+      }
+    }
+
   return (
     <div className="Ingredients">
+      <Modal>
+        <Modal.Header>
+            Instant Recipe Search
+        </Modal.Header>
+        <Modal.Body>
+
+        </Modal.Body>
+        <Modal.Footer>
+
+        </Modal.Footer>
+      </Modal>
       <CustomJumbotron text="Ingredients" />
       <div className="ingredients-container">
         <InputGroup className="mt-5 mb-5 mx-3">
@@ -69,27 +73,26 @@ const Ingredients = (props) => {
             <Button onClick={handleAdd} variant="outline-primary">Add to Pantry</Button>
           </InputGroup.Append>
         </InputGroup>
-        {/*<Form>
-          <Form.Row className="align-items-center">
-            <Col xs="auto">
-              <Form.Group className="ingredient-input" controlId="ingredientInput">
-                <Form.Control  type="input" placeholder="Enter your ingredient" />
-              </Form.Group>
-            </Col>
-            <Col xs="auto">
-              <Button className="ingredient-add-btn" variant="outline-success" type="submit">
-                Add To Pantry
-              </Button>
-            </Col>
-          </Form.Row>
-          <Form.Group>
-            <Form.File id="ingredientPhoto" label="Ingredient photo" />
-          </Form.Group>
-        </Form>*/}
-
 
         <div className="ingredient-cards">
-          {ingredientCards}
+          {ingredients && ingredients.map((ingredient, idx) => 
+            <IngredientCard
+              query={ingredientQuery} 
+              registerQuery={setIngredientQuery} 
+              key={idx}
+              variant="light" 
+              ingredient={ingredient.item} 
+            /> 
+          )}
+          <Button 
+            onClick={handleSearch}
+            variant="primary"
+          >
+            Search 
+          </Button>
+          {recipesQueried && recipesQueried.map((recipe, idx) => 
+            <p key={idx}>{recipe.name}</p>
+          )}
         </div>
       </div>
       <CustomNavbar />
