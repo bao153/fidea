@@ -17,3 +17,16 @@
 .recipe .recipe-container {
   float: left;
 }
+
+.recipe-container .save-btn {
+  transition: all 0.5s ease-in-out;
+}
+
+.recipe-container .save-btn:hover {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
+  transform: scale(1.2);
+}
+
+.recipe-container .save-btn img {
+  width: 1.3rem;
+}

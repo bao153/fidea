@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
@@ -6,64 +6,21 @@ import {
   SearchBox,
   Configure,
 } from 'react-instantsearch-dom';
-import PropTypes from 'prop-types';
-import { connectPagination } from 'react-instantsearch-dom';
 
 import "./Home.css";
+import { SavedRecipesContext } from '../../../contexts/SavedRecipesContext';
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import CustomPagination from '../../lib/CustomPagination/CustomPagination';
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
-import RecipeCard from '../../lib/RecipeCard/RecipeCard';
-
+import CustomHit from '../../lib/CustomHit/CustomHit';
 
 const searchClient = algoliasearch(
   process.env.REACT_APP_ALGOLIA_ID,
   process.env.REACT_APP_ALGOLIA_API_KEY,
 )
 
-const Hit = (props) => {
-  return (
-    <RecipeCard 
-      id={props.hit.objectID} 
-      image={props.hit.image} 
-      title={props.hit.name} 
-      text={props.hit.description}
-    />
-  )
-}
-
-Hit.propTypes = {
-  hit: PropTypes.object.isRequired,
-};
-
-
-
-const Pagination = connectPagination(CustomPagination);
-
 const Home = (props) => {
-  //const [ recipesData, setRecipesData ] = useState([]);
-
-  //useEffect(() => {
-  //  fetchRecipes();
-  //}, []);
-
-  //const fetchRecipes = () => {
-  //  fetch('/data/recipes.json'
-  //  ,{
-  //    headers : { 
-  //      'Content-Type': 'application/json',
-  //      'Accept': 'application/json'
-  //     }
-  //  }
-  //  )
-  //    .then((response) => {
-  //      return response.json();
-  //    })
-  //    .then((myJson) => {
-  //      let newRecipesData = [...myJson];
-  //      setRecipesData(newRecipesData);
-  //    });
-  //}
+  const { savedRecipes, setSavedRecipes } = useContext(SavedRecipesContext);
 
   return (
     <div className='Home'>
@@ -73,8 +30,8 @@ const Home = (props) => {
           <InstantSearch indexName="fidea_recipes" searchClient={searchClient}>
               <Configure hitsPerPage={5} />
               <SearchBox />
-              <Hits hitComponent={Hit} />
-              <Pagination/>
+              <Hits hitComponent={CustomHit} />
+              <CustomPagination/>
           </InstantSearch>
         </div>
       </div>

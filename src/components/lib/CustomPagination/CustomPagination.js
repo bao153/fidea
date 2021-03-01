@@ -2,6 +2,8 @@ import React from 'react';
 
 import "./CustomPagination.css";
 
+import { connectPagination } from 'react-instantsearch-dom';
+
 const CustomPagination = ({ currentRefinement, nbPages, refine, createURL }) => (
   <ul className="pagination-list">
     {new Array(nbPages).fill(null).map((_, index) => {
@@ -29,4 +31,4 @@ const CustomPagination = ({ currentRefinement, nbPages, refine, createURL }) => 
   </ul>
 );
 
-export default CustomPagination;
+export default connectPagination(CustomPagination);
