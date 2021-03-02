@@ -12,7 +12,6 @@ const Saved = (props) => {
   const [ recipesData, setRecipesData ] = useState([]);
 
   useEffect(() => {
-    if (savedRecipes) console.log(savedRecipes);
     fetchRecipes();
   }, []);
 
