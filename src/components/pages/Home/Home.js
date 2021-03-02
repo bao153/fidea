@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import algoliasearch from 'algoliasearch/lite';
 import {
   InstantSearch,
@@ -8,7 +8,6 @@ import {
 } from 'react-instantsearch-dom';
 
 import "./Home.css";
-import { SavedRecipesContext } from '../../../contexts/SavedRecipesContext';
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import CustomPagination from '../../lib/CustomPagination/CustomPagination';
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
@@ -20,7 +19,6 @@ const searchClient = algoliasearch(
 )
 
 const Home = (props) => {
-  const { savedRecipes, setSavedRecipes } = useContext(SavedRecipesContext);
 
   return (
     <div className='Home'>
@@ -29,7 +27,9 @@ const Home = (props) => {
         <div className="ais-InstantSearch">
           <InstantSearch indexName="fidea_recipes" searchClient={searchClient}>
               <Configure hitsPerPage={5} />
-              <SearchBox />
+              <SearchBox translations={{
+                placeholder: "Search recipes..."
+              }} />
               <Hits hitComponent={CustomHit} />
               <CustomPagination/>
           </InstantSearch>

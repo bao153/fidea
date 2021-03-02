@@ -2,7 +2,7 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: -2rem 4rem 1rem 4rem;
-  transition: all 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .ingredient-card.active {
@@ -14,8 +14,12 @@
   transform: scale(1.1);
 }
 
+.ingredient-card .card-body .card-title {
+  font-size: 1rem;
+}
+
 .ingredient-card .card-body {
-  transition: all 0.5s;
+  transition: all 0.2s;
 }
 
 .ingredient-card .card-body:hover {

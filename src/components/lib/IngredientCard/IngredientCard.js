@@ -15,13 +15,11 @@ const IngredientCard = (props) => {
     if (!activeState) {
       if (!ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery + props.ingredient.toLowerCase() + " ";
-        console.log(newQuery);
         props.registerQuery(newQuery);
       }
     } else {
       if (ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery.replace(ingredientLC + " ","");
-        console.log(newQuery);
         props.registerQuery(newQuery);
       }
     }

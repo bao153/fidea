@@ -1,13 +1,39 @@
-.recipe-cards {
-  display: flex;
+.home-container {
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 32rem;
-  overflow: auto;
+  overflow-y: auto;
   overflow-x: hidden;
+  margin-bottom: 3rem;
 }
 
-.ais-SearchBox { margin: 1em 0; }
+.home-container .ais-SearchBox { 
+  margin: 1em 0;
+}
 
-.hit-description { color: #888; font-size: 14px; margin-bottom: .5em }
+.home-container .ais-SearchBox-submit, 
+.home-container .ais-SearchBox-reset {
+  padding: 0.5rem;
+  height: 2rem;
+  outline: none;
+}
+
+.home-container .ais-SearchBox-form > input[type="search"] {
+  margin-top: 1rem;
+  background-color: #eee;
+  border-radius: 20px;
+  border-width: 1px;
+  border-style: none;
+  width: 15rem;
+  padding: 0.5rem 1rem;
+}
+
+.home-container .ais-SearchBox-form > input[type="search"]:focus {
+  outline: none;
+}
+
+.home-container .ais-SearchBox-submit > svg, 
+.home-container .ais-SearchBox-reset > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}

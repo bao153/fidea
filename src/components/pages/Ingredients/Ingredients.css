@@ -14,9 +14,9 @@
   justify-content: space-around;
   flex-wrap: wrap;
   flex-direction: row;
-  height: 32rem;
   overflow-y: auto;
   overflow-x: hidden;
+  margin-bottom: 3rem;
 }
 
 .ingredient-cards {
@@ -24,6 +24,24 @@
   margin-bottom: 2.5rem;
 }
 
+.search-recipes-btn {
+  margin-top: 2rem;
+}
+
 .input-group {
   width: auto;
+}
+
+.ingredient-card {
+  cursor: pointer
+}
+
+.add-ingredient-input .input-group-append > button,
+.add-ingredient-input > input[type="text"] {
+  border-radius: 20px;
+  outline: none;
+}
+
+.add-ingredient-input > input[type="text"] {
+  padding: 0.5rem 1rem;
 }

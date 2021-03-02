@@ -2,15 +2,57 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 3rem !important;
-  transition: all 0.5s ease-in-out;
+  border: none;
+  border-radius: 0.7rem;
+  transition: all 0.2s ease-in-out;
 }
 
 .recipe-card:hover {
-  transform: scale(1.1);
+  /*transform: scale(1.1);*/
+}
+
+.recipe-card .card-header {
+  border: none;
+  box-shadow: 0 0px 1px rgba(0,0,0,0.2);
+  border-top-right-radius: 0.7rem;
+  border-top-left-radius: 0.7rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.recipe-card .card-header:hover {
+  background-color: #eee;
+}
+
+.recipe-card .saved-icon {
+  display:inline-block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-size: cover;
+  background-image: url(../../../assets/like.svg);
+  transition: all 0.2s;
+}
+
+.recipe-card .saved-icon.saved {
+  background-image: url(../../../assets/heart.svg);
+}
+
+.recipe-card .saved-icon.inSaved:hover {
+  background-image: url(../../../assets/minus.svg);
+}
+
+.recipe-card .saved-icon:hover {
+  background-image: url(../../../assets/heart.svg);
 }
 
 .recipe-card .card-body {
-  transition: all 0.5s;
+  transition: all 0.2s ease-in-out;
+}
+
+.recipe-card .card-body:hover {
+  box-shadow: 0 4px 5px 0 rgba(0,0,0,0.2);
+  border-radius: 0.7rem;
+  cursor: pointer;
 }
 
 .recipe-card .card-text {
@@ -19,18 +61,26 @@
   color: #777;
 }
 
-.recipe-card .card-body:hover {
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
-  border-radius: 0.5rem;
-}
-
 .recipe-card .card-img {
   object-fit: cover;
   width: 230px;
   height: 230px;
+  box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+.recipe-card .card-title {
+  transition: all 0.2s;
+}
+
+.recipe-card.saved .card-title {
+  transition: all 0.2s;
+}
+
+.recipe-card.saved .card-title {
+  color: #fc1c1c;
 }
 
 a, a:hover, a:visited, a:active {
-  color: inherit;
+  color: black;
   text-decoration: none;
  }

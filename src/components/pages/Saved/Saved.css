@@ -1,0 +1,15 @@
+.saved-container {
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-bottom: 3.7rem;
+}
+
+.saved-container .empty-saved {
+  margin-top: 10rem;
+  font-size: 3rem;
+  color: #ddd;
+  font-style: italic;
+}
