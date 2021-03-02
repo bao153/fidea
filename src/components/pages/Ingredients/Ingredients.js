@@ -9,6 +9,7 @@ import "./Ingredients.css";
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import IngredientCard from '../../lib/IngredientCard/IngredientCard';
+import RecipeCard from '../../lib/RecipeCard/RecipeCard';
 
 const client = algoliasearch(
     process.env.REACT_APP_ALGOLIA_ID, 
@@ -91,7 +92,12 @@ const Ingredients = (props) => {
             Search 
           </Button>
           {recipesQueried && recipesQueried.map((recipe, idx) => 
-            <p key={idx}>{recipe.name}</p>
+            <RecipeCard
+              key={idx}
+              id={recipe.objectID} 
+              image={recipe.image} 
+              title={recipe.name} 
+            />
           )}
         </div>
       </div>

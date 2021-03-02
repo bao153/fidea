@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 import "./Recipe.css";
@@ -10,6 +10,7 @@ import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
 import savedIcon from '../../../assets/saved.png';
 
 const Recipe = (props) => {
+  const history = useHistory();
   const { savedRecipes, setSavedRecipes } = useContext(SavedRecipesContext);
   const [ recipesData, setRecipesData ] = useState([]);
   const [ recipe, setRecipe ] = useState("");
@@ -38,12 +39,27 @@ const Recipe = (props) => {
       });
   }
 
-  const handleSave = (e) => {
+  const toggleSave = (e) => {
+    e.preventDefault();
+
     if (!savedRecipes.includes(recipeId)) {
       let newSavedRecipes = [...savedRecipes];
       newSavedRecipes.push(recipeId);
       setSavedRecipes(newSavedRecipes);
+      if (!document.getElementById("save-btn").classList.contains("saved")) {
+        document.getElementById("save-btn").classList.add("saved");
+      }
+    } else {
+      let newSavedRecipes = savedRecipes.filter(id => id != recipeId);
+      setSavedRecipes(newSavedRecipes);
+      if (document.getElementById("save-btn").classList.contains("saved")) {
+        document.getElementById("save-btn").classList.remove("saved");
+      }
     }
+  }
+
+  const goBack = (e) => {
+    history.goBack();
   }
 
   return (
@@ -52,6 +68,9 @@ const Recipe = (props) => {
         text={recipe.name} 
       />
       <div className="recipe-container">
+        <Button onClick={goBack} className="back-btn">
+          Back Button
+        </Button>
         <p style={{fontWeight: "bold"}}>Ingredients:</p>
         <p>{recipe.ingredients}</p>
         <br/>
@@ -60,8 +79,13 @@ const Recipe = (props) => {
         <br/>
         <p style={{fontWeight: "bold"}}>Instructions: </p>
         <p>{recipe.instructions}</p>
-        <Button onClick={handleSave} className="save-btn"><img src={savedIcon}/></Button>
-        
+        <Button 
+          id="save-btn" 
+          onClick={toggleSave} 
+          className={"save-btn" + (savedRecipes.includes(recipeId) ? " saved" : "")}
+        >
+          <img src={savedIcon}/>
+        </Button>
       </div>
       <CustomNavbar />
     </div>

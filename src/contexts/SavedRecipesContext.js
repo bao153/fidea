@@ -3,7 +3,7 @@ import React, { createContext, useEffect, useState } from 'react';
 export const SavedRecipesContext = createContext();
 
 const SavedRecipesContextProvider = (props) => {
-  const [ savedRecipes, setSavedRecipes ] = useState([]);
+  const [ savedRecipes, setSavedRecipes ] = useState(["0", "1", "4", "6", "16"]);
 
   useEffect(() => {
     console.log(savedRecipes);
