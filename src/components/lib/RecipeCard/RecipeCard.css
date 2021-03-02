@@ -45,6 +45,40 @@
   background-image: url(../../../assets/heart.svg);
 }
 
+.recipe-card .card-header {
+  border: none;
+  box-shadow: 0 0px 1px rgba(0,0,0,0.2);
+  border-top-right-radius: 0.7rem;
+  border-top-left-radius: 0.7rem;
+  transition: 0.2s;
+}
+
+.recipe-card .card-header:hover {
+  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.recipe-card .saved-icon {
+  display:inline-block;
+  width: 0.95rem;
+  height: 0.95rem;
+  background-size: cover;
+  background-image: url(../../../assets/like.svg);
+  transition: all 0.2s;
+}
+
+.recipe-card .saved-icon.saved {
+  background-image: url(../../../assets/heart.svg);
+}
+
+.recipe-card .saved-icon.inSaved:hover {
+  background-image: url(../../../assets/minus.svg);
+}
+
+.recipe-card .saved-icon:hover {
+  background-image: url(../../../assets/heart.svg);
+}
+
 .recipe-card .card-body {
   transition: all 0.2s ease-in-out;
 }

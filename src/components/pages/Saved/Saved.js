@@ -53,6 +53,7 @@ const Saved = (props) => {
         {(savedRecipes && savedRecipes.length === 0) 
           ? <div className="empty-saved">No saved recipes :(</div> 
           : null}
+
       </div>
       <CustomNavbar />
     </div>
