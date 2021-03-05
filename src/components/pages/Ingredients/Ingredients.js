@@ -20,7 +20,7 @@ const index = client.initIndex("fidea_recipes");
 const Ingredients = (props) => {
   const { savedIngredients, setSavedIngredients } = useContext(IngredientsContext);
   const [ ingredientQuery, setIngredientQuery ] = useState("");
-  const [ recipesQueried, setRecipesQueried ] = useState(null);
+  const [ recipesQueried, setRecipesQueried ] = useState([]);
   const [ showSearchModal, setShowSearchModal ] = useState(false);
 
     const handleAdd = (e) => {
@@ -29,10 +29,8 @@ const Ingredients = (props) => {
 
       if (ingredientAdded) {
         let newIngredients = [...savedIngredients].filter(ingredient => ingredient != "Your ingredient goes here!");
-        console.log(newIngredients.includes(ingredientAdded));
         if (!(newIngredients.includes(ingredientAdded.trim()))) {
           newIngredients.push(ingredientAdded);
-          console.log(newIngredients);
           setSavedIngredients(newIngredients);
           document.getElementById("ingredient-to-add").value = "";
         }
@@ -52,6 +50,8 @@ const Ingredients = (props) => {
         index.search(ingredientQuery).then(({ hits }) => {
           setRecipesQueried(hits);
         });
+      } else {
+          setRecipesQueried([]);
       }
     }
 

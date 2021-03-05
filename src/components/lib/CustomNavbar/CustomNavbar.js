@@ -13,7 +13,6 @@ const CustomNavbar = (props) => {
 
   const handleSelect = (eventKey, e) => {
     setActiveKey(eventKey);
-    console.log(eventKey)
   }
 
   return (

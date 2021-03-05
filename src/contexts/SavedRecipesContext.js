@@ -6,7 +6,6 @@ const SavedRecipesContextProvider = (props) => {
   const [ savedRecipes, setSavedRecipes ] = useState(["0", "1", "4", "6", "16"]);
 
   useEffect(() => {
-    console.log(savedRecipes);
   }, [savedRecipes])
 
   return (

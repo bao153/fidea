@@ -8,7 +8,7 @@
 }
 
 .recipe-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.06);
 }
 
 .recipe-card .saved-icon {

@@ -6,7 +6,6 @@ const IngredientsContextProvider = (props) => {
   const [ savedIngredients, setSavedIngredients ] = useState(["Your ingredient goes here!"]);
 
   useEffect(() => {
-    console.log(savedIngredients);
   }, [savedIngredients])
 
   return (
