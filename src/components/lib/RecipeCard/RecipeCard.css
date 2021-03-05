@@ -4,30 +4,17 @@
   margin: 3rem !important;
   border: none;
   border-radius: 0.7rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.05s ease-in-out;
 }
 
 .recipe-card:hover {
-  /*transform: scale(1.1);*/
-}
-
-.recipe-card .card-header {
-  border: none;
-  box-shadow: 0 0px 1px rgba(0,0,0,0.2);
-  border-top-right-radius: 0.7rem;
-  border-top-left-radius: 0.7rem;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.recipe-card .card-header:hover {
-  background-color: #eee;
+  transform: scale(1.1);
 }
 
 .recipe-card .saved-icon {
-  display:inline-block;
-  width: 1.2rem;
-  height: 1.2rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
   background-size: cover;
   background-image: url(../../../assets/like.svg);
   transition: all 0.2s;
@@ -50,11 +37,12 @@
   box-shadow: 0 0px 1px rgba(0,0,0,0.2);
   border-top-right-radius: 0.7rem;
   border-top-left-radius: 0.7rem;
-  transition: 0.2s;
+  transition: all 0.05s;
 }
 
 .recipe-card .card-header:hover {
-  box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
+  background-color: #eee;
+  box-shadow: 0 4px 15px 0 rgba(0,0,0,0.2);
   cursor: pointer;
 }
 
@@ -71,7 +59,7 @@
 }
 
 .recipe-card .card-body {
-  transition: all 0.2s ease-in-out;
+  transition: all 0.05s ease-in-out;
 }
 
 .recipe-card .card-body:hover {
@@ -94,11 +82,11 @@
 }
 
 .recipe-card .card-title {
-  transition: all 0.2s;
+  transition: all 0.05s;
 }
 
 .recipe-card.saved .card-title {
-  transition: all 0.2s;
+  transition: all 0.05s;
 }
 
 .recipe-card.saved .card-title {

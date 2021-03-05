@@ -45,3 +45,9 @@
 .add-ingredient-input > input[type="text"] {
   padding: 0.5rem 1rem;
 }
+
+.ingredients-container .search-recipes-btn {
+  border-radius: 20px;
+  outline: none;
+  height: 3rem;
+}

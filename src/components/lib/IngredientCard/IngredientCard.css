@@ -2,7 +2,8 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: -2rem 4rem 1rem 4rem;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.05s ease-in-out;
+  border: none;
 }
 
 .ingredient-card.active {
@@ -18,11 +19,28 @@
   font-size: 1rem;
 }
 
-.ingredient-card .card-body {
-  transition: all 0.2s;
+.ingredient-card .card-header {
+  border: none;
+  height: 2rem;
+  padding: 0.5rem 0;
+  box-shadow: 0 0px 1px rgba(0,0,0,0.2);
+  border-top-right-radius: 0.7rem;
+  border-top-left-radius: 0.7rem;
+  cursor: pointer;
+  transition: all 0.05s;
 }
 
-.ingredient-card .card-body:hover {
+.ingredient-card .card-header:hover {
   box-shadow: 0 4px 20px 0 rgba(0,0,0,0.2);
-  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.ingredient-card .remove-btn {
+  display: inline-flex;
+  top: 100px;
+  width: 1rem;
+  height: 1rem;
+  background-size: cover;
+  background-image: url(../../../assets/minus.svg);
+  transition: all 0.2s;
 }

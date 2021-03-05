@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Card from 'react-bootstrap/Card';
 
 import './IngredientCard.css';
 
+import { IngredientsContext } from '../../../contexts/IngredientsContext';
+
 const IngredientCard = (props) => {
+  const { savedIngredients, setSavedIngredients } = useContext(IngredientsContext);
   const [ active, setActive ] = useState(false);
 
-  const toggleActive = () => {
+  const toggleActive = (e) => {
+    e.preventDefault();
+    
     const activeState = active;
     setActive(!activeState);
     const ingredientQuery = props.query;
@@ -25,14 +30,33 @@ const IngredientCard = (props) => {
     }
   }
 
+  const handleRemove = (e) => {
+    e.preventDefault();
+
+    const newIngredients = [...savedIngredients].filter(ingredient => ingredient != props.ingredient);
+    setSavedIngredients(newIngredients);
+
+    const ingredientQuery = props.query;
+    const ingredientLC = props.ingredient.toLowerCase();
+
+    if (active) {
+      if (ingredientQuery.includes(ingredientLC)) {
+        const newQuery = ingredientQuery.replace(ingredientLC + " ","");
+        props.registerQuery(newQuery);
+      }
+    }
+  }
+
   return (
     <Card
-      className={`ingredient-card${active ? " active": ""}`}
-      onClick={toggleActive} 
+      className={`ingredient-card${active ? " active": ""}`} 
       bg={props.variant ? props.variant.toLowerCase() : null}
     >
+      <Card.Header onClick={handleRemove}>
+        <span className="remove-btn"></span>
+      </Card.Header>
     <Card.Body>
-      <Card.Title>{props.ingredient}</Card.Title>
+      <Card.Title onClick={toggleActive}>{props.ingredient}</Card.Title>
     </Card.Body>
   </Card>
   )

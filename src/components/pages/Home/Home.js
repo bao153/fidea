@@ -22,7 +22,7 @@ const Home = (props) => {
 
   return (
     <div className='Home'>
-      <CustomJumbotron text="Fidea" />
+      <CustomJumbotron noBackBtn text="Fidea" />
       <div className="home-container">
         <div className="ais-InstantSearch">
           <InstantSearch indexName="fidea_recipes" searchClient={searchClient}>

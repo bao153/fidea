@@ -26,11 +26,16 @@ const Ingredients = (props) => {
     const handleAdd = (e) => {
       e.preventDefault();
       const ingredientAdded = document.getElementById("ingredient-to-add").value;
+
       if (ingredientAdded) {
-        let newIngredients = [...savedIngredients].filter(ingredient => ingredient.item != "Your ingredient goes here!");
-        newIngredients.push({item: ingredientAdded});
-        setSavedIngredients(newIngredients);
-        document.getElementById("ingredient-to-add").value = "";
+        let newIngredients = [...savedIngredients].filter(ingredient => ingredient != "Your ingredient goes here!");
+        console.log(newIngredients.includes(ingredientAdded));
+        if (!(newIngredients.includes(ingredientAdded.trim()))) {
+          newIngredients.push(ingredientAdded);
+          console.log(newIngredients);
+          setSavedIngredients(newIngredients);
+          document.getElementById("ingredient-to-add").value = "";
+        }
       }
     }
 
@@ -84,8 +89,7 @@ const Ingredients = (props) => {
               query={ingredientQuery} 
               registerQuery={setIngredientQuery} 
               key={idx}
-              variant="light" 
-              ingredient={ingredient.item} 
+              ingredient={ingredient} 
             /> 
           )}
           <Button 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 import "./Recipe.css";
@@ -10,7 +10,6 @@ import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
 import savedIcon from '../../../assets/saved.png';
 
 const Recipe = (props) => {
-  const history = useHistory();
   const { savedRecipes, setSavedRecipes } = useContext(RecipesContext);
 
   const [ recipesData, setRecipesData ] = useState([]);
@@ -59,19 +58,12 @@ const Recipe = (props) => {
     }
   }
 
-  const goBack = (e) => {
-    history.goBack();
-  }
-
   return (
     recipe && <div className="recipe">
       <CustomJumbotron
         text={recipe.name} 
       />
       <div className="recipe-container">
-        <Button onClick={goBack} className="back-btn">
-          Back Button
-        </Button>
         <p style={{fontWeight: "bold"}}>Ingredients:</p>
         <p>{recipe.ingredients}</p>
         <br/>

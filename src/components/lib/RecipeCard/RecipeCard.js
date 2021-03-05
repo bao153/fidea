@@ -5,13 +5,13 @@ import Card from 'react-bootstrap/Card';
 import './RecipeCard.css';
 
 import { RecipesContext } from '../../../contexts/RecipesContext';
-import savedIcon from '../../../assets/like.svg';
 
 const RecipeCard = (props) => {
   const { savedRecipes, setSavedRecipes } = useContext(RecipesContext);
 
   const toggleSave = (e) => {
     e.preventDefault();
+
     if (!savedRecipes.includes(props.id)) {
       let newSavedRecipes = [...savedRecipes];
       newSavedRecipes.push(props.id);
@@ -32,7 +32,8 @@ const RecipeCard = (props) => {
           id={"saved-icon-" + props.id} 
           className={"saved-icon" 
                       + (savedRecipes.includes(props.id) ? " saved" : "")
-                      + (props.inSaved ? " inSaved" : "")}></span>
+                      + (props.inSaved ? " inSaved" : "")}>
+        </span>
       </Card.Header>
       <Card.Link as={NavLink} to={'/recipe/' + props.id}>
         <Card.Body>

@@ -1,7 +1,6 @@
 .jumbotron {
-  padding: 1rem 0 3rem 0;
-  margin-bottom: 0.25rem;
-  height: 2rem;
+  padding: 0 2rem;
+  margin-bottom: auto;
   background-color: #fff;
   box-shadow: 1px 3px 4px #89c2ff;
   position: sticky;
@@ -9,8 +8,24 @@
   z-index: 1000;
 }
 
-.jumbotron > div {
+.jumbotron .jumbotron-text {
+  display: inline;
   font-weight: bold;
-  font-size: 2rem;
-  top: 0px;
+  font-size: 1.5rem;
+  top: 1rem;
+}
+
+.jumbotron .back-btn {
+  position: absolute;
+  cursor: pointer;
+  left: 1.5rem;
+  top: 0.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url(../../../assets/backb.svg);
+  transition: all 0.05s;
+}
+
+.jumbotron .back-btn:hover {
+  transform: scale(0.7);
 }
