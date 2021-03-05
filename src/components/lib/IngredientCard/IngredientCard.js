@@ -12,8 +12,14 @@ const IngredientCard = (props) => {
   const toggleActive = (e) => {
     e.preventDefault();
     
-    const activeState = active;
+    if (!document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
+      document.getElementById("ingredient-card-" + props.ingredient).classList.add("active");
+    } else {
+      document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
+    }
 
+    const activeState = active;
+    setActive(!activeState);
     const ingredientQuery = props.query;
     const ingredientLC = props.ingredient.toLowerCase();
 
@@ -21,15 +27,16 @@ const IngredientCard = (props) => {
       if (!ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery + props.ingredient.toLowerCase() + " ";
         props.registerQuery(newQuery);
+
       }
     } else {
       if (ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery.replace(ingredientLC + " ","");
         props.registerQuery(newQuery);
+
       }
     }
     
-    setActive(!activeState);
   }
 
   const handleRemove = (e) => {
@@ -52,7 +59,7 @@ const IngredientCard = (props) => {
   return (
     <Card
       id={"ingredient-card-" + props.ingredient}
-      className={"ingredient-card" + (props.query.includes(props.ingredient) ? " active" : "")}
+      className="ingredient-card"
       bg={props.variant ? props.variant.toLowerCase() : null}
     >
       <Card.Header onClick={handleRemove}>
