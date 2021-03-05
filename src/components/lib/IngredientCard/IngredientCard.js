@@ -10,25 +10,16 @@ const IngredientCard = (props) => {
   const [ active, setActive ] = useState(false);
 
   useEffect(() => {
-    console.log(props.ingredient + " active changed from " + !active + " to " + active)
   }, [active])
 
   const toggleActive = (e) => {
-    //e.preventDefault();
+    e.preventDefault();
     
-    if (!document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
-      document.getElementById("ingredient-card-" + props.ingredient).classList.add("active");
-    } else {
-      document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
-    }
-
-    const activeState = active;
-    console.log(props.ingredient + " active state: " + !activeState)
-    setActive(!activeState);
+    const newActiveState = !active;
     const ingredientQuery = props.query;
     const ingredientLC = props.ingredient.toLowerCase();
 
-    if (!activeState) {
+    if (newActiveState) {
       if (!ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery + props.ingredient.toLowerCase() + " ";
         props.registerQuery(newQuery);
@@ -41,6 +32,7 @@ const IngredientCard = (props) => {
 
       }
     }
+    setActive(newActiveState);
     
   }
 
@@ -53,17 +45,16 @@ const IngredientCard = (props) => {
     const ingredientQuery = props.query;
     const ingredientLC = props.ingredient.toLowerCase();
 
-    if (active) {
-      if (document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
-        document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
-      }
-
-      if (ingredientQuery.includes(ingredientLC)) {
-        const newQuery = ingredientQuery.replace(ingredientLC + " ","");
-        props.registerQuery(newQuery);
-      }
+    if (document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
+      document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
     }
-    console.log(props.ingredient + " removed!")
+
+    if (ingredientQuery.includes(ingredientLC)) {
+      const newQuery = ingredientQuery.replace(ingredientLC + " ","");
+      props.registerQuery(newQuery);
+    }
+
+    setActive(false);
   }
 
   return (

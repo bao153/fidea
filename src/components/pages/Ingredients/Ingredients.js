@@ -27,9 +27,10 @@ const Ingredients = (props) => {
       const ingredientAdded = document.getElementById("ingredient-to-add").value;
 
       if (ingredientAdded) {
-        let newIngredients = [...savedIngredients].filter(ingredient => ingredient != "Your ingredient goes here!");
+        let newIngredients = [...savedIngredients];
         if (!newIngredients.includes(ingredientAdded.trim())) {
           newIngredients.push(ingredientAdded);
+          newIngredients = newIngredients.filter(ingredient => ingredient != "Your ingredient goes here!");
           setSavedIngredients(newIngredients);
           document.getElementById("ingredient-to-add").value = "";
         }
