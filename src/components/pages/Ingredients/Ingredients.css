@@ -32,10 +32,6 @@
   width: auto;
 }
 
-.ingredient-card {
-  cursor: pointer
-}
-
 .add-ingredient-input .input-group-append > button,
 .add-ingredient-input > input[type="text"] {
   border-radius: 20px;

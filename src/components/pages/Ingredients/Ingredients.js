@@ -21,7 +21,6 @@ const Ingredients = (props) => {
   const { savedIngredients, setSavedIngredients } = useContext(IngredientsContext);
   const [ ingredientQuery, setIngredientQuery ] = useState("");
   const [ recipesQueried, setRecipesQueried ] = useState([]);
-  const [ showSearchModal, setShowSearchModal ] = useState(false);
 
     const handleAdd = (e) => {
       e.preventDefault();
@@ -29,7 +28,7 @@ const Ingredients = (props) => {
 
       if (ingredientAdded) {
         let newIngredients = [...savedIngredients].filter(ingredient => ingredient != "Your ingredient goes here!");
-        if (!(newIngredients.includes(ingredientAdded.trim()))) {
+        if (!newIngredients.includes(ingredientAdded.trim())) {
           newIngredients.push(ingredientAdded);
           setSavedIngredients(newIngredients);
           document.getElementById("ingredient-to-add").value = "";
@@ -85,7 +84,6 @@ const Ingredients = (props) => {
         <div className="ingredient-cards">
           {savedIngredients && savedIngredients.map((ingredient, idx) => 
             <IngredientCard
-              className="ingredient-card"
               query={ingredientQuery} 
               registerQuery={setIngredientQuery} 
               key={idx}

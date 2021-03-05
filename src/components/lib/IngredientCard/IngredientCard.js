@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import Card from 'react-bootstrap/Card';
 
 import './IngredientCard.css';
@@ -9,8 +9,12 @@ const IngredientCard = (props) => {
   const { savedIngredients, setSavedIngredients } = useContext(IngredientsContext);
   const [ active, setActive ] = useState(false);
 
+  useEffect(() => {
+    console.log(props.ingredient + " active changed from " + !active + " to " + active)
+  }, [active])
+
   const toggleActive = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     
     if (!document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
       document.getElementById("ingredient-card-" + props.ingredient).classList.add("active");
@@ -19,6 +23,7 @@ const IngredientCard = (props) => {
     }
 
     const activeState = active;
+    console.log(props.ingredient + " active state: " + !activeState)
     setActive(!activeState);
     const ingredientQuery = props.query;
     const ingredientLC = props.ingredient.toLowerCase();
@@ -49,17 +54,22 @@ const IngredientCard = (props) => {
     const ingredientLC = props.ingredient.toLowerCase();
 
     if (active) {
+      if (document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
+        document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
+      }
+
       if (ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery.replace(ingredientLC + " ","");
         props.registerQuery(newQuery);
       }
     }
+    console.log(props.ingredient + " removed!")
   }
 
   return (
     <Card
       id={"ingredient-card-" + props.ingredient}
-      className="ingredient-card"
+      className={"ingredient-card" + (active ? " active" : "")}
       bg={props.variant ? props.variant.toLowerCase() : null}
     >
       <Card.Header onClick={handleRemove}>
