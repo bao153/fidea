@@ -33,9 +33,11 @@ const Recipe = (props) => {
         return response.json();
       })
       .then((myJson) => {
+        console.log(myJson);
         let newRecipesData = [...myJson];
         setRecipesData(newRecipesData);
-        setRecipe(newRecipesData[recipeId]);
+        let recipe = newRecipesData.filter(recipe => recipe.objectID == recipeId)[0];
+        setRecipe(recipe);
       });
   }
 

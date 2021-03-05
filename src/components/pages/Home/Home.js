@@ -26,7 +26,7 @@ const Home = (props) => {
       <div className="home-container">
         <div className="ais-InstantSearch">
           <InstantSearch indexName="fidea_recipes" searchClient={searchClient}>
-              <Configure hitsPerPage={5} />
+              <Configure hitsPerPage={10} />
               <SearchBox translations={{
                 placeholder: "Search recipes..."
               }} />
