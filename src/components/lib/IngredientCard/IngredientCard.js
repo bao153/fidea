@@ -21,9 +21,6 @@ const IngredientCard = (props) => {
       if (!ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery + props.ingredient.toLowerCase() + " ";
         props.registerQuery(newQuery);
-        if (!document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
-          document.getElementById("ingredient-card-" + props.ingredient).classList.add("active");
-        }
       }
     } else {
       if (ingredientQuery.includes(ingredientLC)) {
