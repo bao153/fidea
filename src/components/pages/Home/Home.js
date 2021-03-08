@@ -6,12 +6,16 @@ import {
   SearchBox,
   Configure,
 } from 'react-instantsearch-dom';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+import Button from 'react-bootstrap/Button';
 
 import "./Home.css";
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import CustomPagination from '../../lib/CustomPagination/CustomPagination';
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
 import CustomHit from '../../lib/CustomHit/CustomHit';
+import CustomTooltip from '../../lib/CustomTooltip/CustomTooltip';
 
 const searchClient = algoliasearch(
   process.env.REACT_APP_ALGOLIA_ID,
@@ -24,12 +28,31 @@ const Home = (props) => {
     <div className='Home'>
       <CustomJumbotron noBackBtn text="Fidea" />
       <div className="home-container">
+        {/*<OverlayTrigger
+          placement="bottom"
+          overlay={<Tooltip id="button-tooltip-2">Check out this avatar</Tooltip>}
+        >
+            <Button
+              variant="light"
+              className="d-inline-flex align-items-center"
+            >
+              <span className="ml-1">i</span>
+            </Button>
+        
+        </OverlayTrigger>*/}
         <div className="ais-InstantSearch">
           <InstantSearch indexName="fidea_recipes" searchClient={searchClient}>
               <Configure hitsPerPage={10} />
-              <SearchBox translations={{
-                placeholder: "Search recipes..."
-              }} />
+              <CustomTooltip Home/>
+              <OverlayTrigger
+                className="tooltip-overlay"
+                placement="bottom"
+                overlay={<Tooltip id="recipe-search-tooltip">Input <strong>ingredients</strong>, get <strong>recipes!</strong></Tooltip>}
+              >
+                <SearchBox translations={{
+                  placeholder: "Search recipes..."
+                }} />
+              </OverlayTrigger>
               <Hits hitComponent={CustomHit} />
               <CustomPagination/>
           </InstantSearch>

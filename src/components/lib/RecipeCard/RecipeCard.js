@@ -26,13 +26,13 @@ const RecipeCard = (props) => {
   }
 
   return (
-    <Card className={"recipe-card" + (savedRecipes.includes(props.id) ? " saved" : "")} >
+    <Card className={"recipe-card"} >
       <Card.Header onClick={toggleSave}>
         <span 
           id={"saved-icon-" + props.id} 
           className={"saved-icon" 
                       + (savedRecipes.includes(props.id) ? " saved" : "")
-                      + (props.inSaved ? " inSaved" : "")}>
+                    + (props.inSaved ? " inSaved" : "")}>
         </span>
       </Card.Header>
       <Card.Link as={NavLink} to={'/recipe/' + props.id}>

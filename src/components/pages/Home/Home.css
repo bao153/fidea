@@ -7,8 +7,12 @@
   margin-bottom: 3rem;
 }
 
+.home-container #recipe-search-tooltip {
+  /*width: 10rem;  */
+}
+
 .home-container .ais-SearchBox { 
-  margin: 1em 0;
+  /*margin: 1em 0;*/
 }
 
 .home-container .ais-SearchBox-submit, 

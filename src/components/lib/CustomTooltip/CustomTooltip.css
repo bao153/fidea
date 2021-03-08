@@ -1,0 +1,11 @@
+.info-container .info-icon {
+  /*display: none;*/
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-top: 1rem;
+  cursor: pointer;
+}
+
+.popover-body {
+
+}

@@ -16,6 +16,7 @@ const IngredientCard = (props) => {
     e.preventDefault();
     
     const newActiveState = !active;
+    setActive(newActiveState);
     const ingredientQuery = props.query;
     const ingredientLC = props.ingredient.toLowerCase();
 
@@ -23,38 +24,34 @@ const IngredientCard = (props) => {
       if (!ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery + props.ingredient.toLowerCase() + " ";
         props.registerQuery(newQuery);
-
+        if (!document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
+          document.getElementById("ingredient-card-" + props.ingredient).classList.add("active");
+        }
       }
     } else {
       if (ingredientQuery.includes(ingredientLC)) {
         const newQuery = ingredientQuery.replace(ingredientLC + " ","");
         props.registerQuery(newQuery);
-
+        if (document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
+          document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
+        }
       }
     }
-    setActive(newActiveState);
     
   }
 
   const handleRemove = (e) => {
     e.preventDefault();
-
-    const newIngredients = [...savedIngredients].filter(ingredient => ingredient != props.ingredient);
-    setSavedIngredients(newIngredients);
-
     const ingredientQuery = props.query;
     const ingredientLC = props.ingredient.toLowerCase();
-
-    if (document.getElementById("ingredient-card-" + props.ingredient).classList.contains("active")) {
-      document.getElementById("ingredient-card-" + props.ingredient).classList.remove("active");
-    }
 
     if (ingredientQuery.includes(ingredientLC)) {
       const newQuery = ingredientQuery.replace(ingredientLC + " ","");
       props.registerQuery(newQuery);
     }
 
-    setActive(false);
+    const newIngredients = [...savedIngredients].filter(ingredient => ingredient != props.ingredient);
+    setSavedIngredients(newIngredients);
   }
 
   return (

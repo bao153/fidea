@@ -42,7 +42,7 @@ const Saved = (props) => {
         && recipesData.filter(recipe => savedRecipes.includes(recipe.objectID))
                       .map((recipe, idx) => {
                         return (<RecipeCard 
-                        key={idx}
+                        key={recipe.name}
                         id={recipe.objectID || ""} 
                         image={recipe.image || ""} 
                         title={recipe.name || ""} 

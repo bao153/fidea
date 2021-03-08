@@ -30,6 +30,7 @@
 
 .input-group {
   width: auto;
+  margin-top: 1rem;
 }
 
 .add-ingredient-input .input-group-append > button,

@@ -1,9 +1,11 @@
 import React, { useState, useContext } from 'react';
+import algoliasearch from 'algoliasearch/lite';
 import InputGroup from 'react-bootstrap/InputGroup';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import algoliasearch from 'algoliasearch/lite';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 import "./Ingredients.css";
 import { IngredientsContext } from '../../../contexts/IngredientsContext';
@@ -11,6 +13,7 @@ import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import IngredientCard from '../../lib/IngredientCard/IngredientCard';
 import RecipeCard from '../../lib/RecipeCard/RecipeCard';
+import CustomTooltip from '../../lib/CustomTooltip/CustomTooltip';
 
 const client = algoliasearch(
     process.env.REACT_APP_ALGOLIA_ID, 
@@ -70,13 +73,21 @@ const Ingredients = (props) => {
       </Modal>
       <CustomJumbotron text="Ingredients" />
       <div className="ingredients-container">
-        <InputGroup className="add-ingredient-input mt-5 mb-5 mx-3">
-          <FormControl
-            type="text"
-            onKeyPress={handleEnter}
-            id="ingredient-to-add"
-            placeholder="Enter your ingredient"
-          />
+        <CustomTooltip Ingredients/>
+        <InputGroup className="add-ingredient-input mx-3">
+          <OverlayTrigger
+            className="tooltip-overlay"
+            placement="bottom"
+            overlay={<Tooltip id="recipe-search-tooltip">Add <strong>ingredients</strong> to your <strong>pantry</strong></Tooltip>}
+          >
+            <FormControl
+              type="text"
+              onKeyPress={handleEnter}
+              id="ingredient-to-add"
+              placeholder="Enter your ingredient"
+            />
+          </OverlayTrigger>
+
           <InputGroup.Append>
             <Button onClick={handleAdd} variant="outline-primary">Add to Pantry</Button>
           </InputGroup.Append>
@@ -85,11 +96,11 @@ const Ingredients = (props) => {
         <div className="ingredient-cards">
           {savedIngredients && savedIngredients.map((ingredient, idx) => 
             <IngredientCard
-              query={ingredientQuery} 
-              registerQuery={setIngredientQuery} 
-              key={idx}
-              ingredient={ingredient} 
-            /> 
+            query={ingredientQuery} 
+            registerQuery={setIngredientQuery} 
+            key={ingredient}
+            ingredient={ingredient} 
+          /> 
           )}
           <Button 
             className="search-recipes-btn"
