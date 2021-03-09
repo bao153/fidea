@@ -14,10 +14,7 @@ const CustomJumbotron = (props) => {
   return (
     <Jumbotron id="jumbotron">
       {!props.noBackBtn && <span onClick={handleBackBtn} className="back-btn"></span>}
-      <div className="jumbotron-text"
-        //style={
-          //props.text && props.text.split(' ').length > 4 ? { fontSize: 1.1 + "rem"} : null }
-      >{props.text}</div>
+      <div className="jumbotron-text">{props.text}</div>
     </Jumbotron>
   )
 }

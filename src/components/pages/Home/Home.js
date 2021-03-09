@@ -28,18 +28,6 @@ const Home = (props) => {
     <div className='Home'>
       <CustomJumbotron noBackBtn text="Fidea" />
       <div className="home-container">
-        {/*<OverlayTrigger
-          placement="bottom"
-          overlay={<Tooltip id="button-tooltip-2">Check out this avatar</Tooltip>}
-        >
-            <Button
-              variant="light"
-              className="d-inline-flex align-items-center"
-            >
-              <span className="ml-1">i</span>
-            </Button>
-        
-        </OverlayTrigger>*/}
         <div className="ais-InstantSearch">
           <InstantSearch indexName="fidea_recipes" searchClient={searchClient}>
               <Configure hitsPerPage={10} />

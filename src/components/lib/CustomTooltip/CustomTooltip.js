@@ -23,6 +23,12 @@ const CustomTooltip = (props) => {
                 <strong>2.</strong> Click (or unclick) the ingredient cards below to customize your recipe search 
                 <br/>
                 <strong>3.</strong> Simply use the search button to get recipes!`);
+    } else if (!props.Home && !props.Ingredients && props.Saved) {
+      setContent(`<strong>1.</strong> Go to view your saved recipes by clicking on them
+                <br/>
+                <strong>2.</strong> Unsave recipes by clicking the heart icon 
+                <br/>
+                <strong>3.</strong> Save lots of them so you won't have to go back searching for them!`);
     }
   }, [])
   return (

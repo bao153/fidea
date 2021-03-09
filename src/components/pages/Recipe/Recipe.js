@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useParams} from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
+import Image from 'react-bootstrap/Image';
 
 import "./Recipe.css";
 
@@ -13,12 +14,22 @@ const Recipe = (props) => {
   const { savedRecipes, setSavedRecipes } = useContext(RecipesContext);
 
   const [ recipesData, setRecipesData ] = useState([]);
+  const [ containerHeight, setContainerHeight ] = useState("34rem");
   const [ recipe, setRecipe ] = useState("");
   const { recipeId } = useParams();
 
   useEffect(() => {
     fetchRecipes();
+
   }, []);
+
+  useEffect(() => {
+    if (recipe.name && (recipe.name.split(" ").length == 5 || recipe.name.split(" ").length == 6) ) {
+      setContainerHeight("32rem");
+    } else if (recipe.name && recipe.name.split(" ").length >= 7 ) {
+      setContainerHeight("29rem")
+    }
+  }, [recipe])
 
   const fetchRecipes = () => {
     fetch('/data/recipes.json'
@@ -62,9 +73,13 @@ const Recipe = (props) => {
   return (
     recipe && <div className="recipe">
       <CustomJumbotron
+        image={recipe.image}
         text={recipe.name} 
       />
       <div className="recipe-container">
+        <Image className="recipe-image" src={recipe.image} fluid rounded/>
+        <br/>
+        <br/>
         <p style={{fontWeight: "bold"}}>Ingredients:</p>
         <p>{recipe.ingredients}</p>
         <br/>
