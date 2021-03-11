@@ -38,7 +38,7 @@ const Home = (props) => {
                 overlay={<Tooltip id="recipe-search-tooltip">Input <strong>ingredients</strong>, get <strong>recipes!</strong></Tooltip>}
               >
                 <SearchBox translations={{
-                  placeholder: "Search recipes..."
+                  placeholder: "Browse recipes..."
                 }} />
               </OverlayTrigger>
               <Hits hitComponent={CustomHit} />

@@ -4,32 +4,37 @@
   flex-direction: row;
   overflow-y: auto;
   overflow-x: hidden;
-  margin-bottom: 3rem;
+  margin-bottom: 5rem;
 }
 
-.home-container #recipe-search-tooltip {
-  /*width: 10rem;  */
+.home-container .ais-SearchBox-submit {
+  background-color: #FFD362;
+  width: 4rem;
+  border-radius: 0.5rem;
+  padding-bottom: 2rem;
+  transition: all 0.5s;
 }
 
-.home-container .ais-SearchBox { 
-  /*margin: 1em 0;*/
+.home-container .ais-SearchBox-submit:hover {
+  background-color: #fcc431;
+  transform: scale(1.05);
 }
 
 .home-container .ais-SearchBox-submit, 
 .home-container .ais-SearchBox-reset {
   padding: 0.5rem;
-  height: 2rem;
+  margin-left: 0.5rem;
   outline: none;
 }
 
 .home-container .ais-SearchBox-form > input[type="search"] {
-  margin-top: 1rem;
+  margin-top: 2rem;
   background-color: #eee;
-  border-radius: 20px;
+  border-radius: 30px;
   border-width: 1px;
   border-style: none;
-  width: 15rem;
-  padding: 0.5rem 1rem;
+  width: 13rem;
+  padding: 0.8rem 1rem;
 }
 
 .home-container .ais-SearchBox-form > input[type="search"]:focus {

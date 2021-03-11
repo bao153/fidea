@@ -8,7 +8,7 @@ import "./Recipe.css";
 import { RecipesContext } from '../../../contexts/RecipesContext';
 import CustomNavbar from '../../lib/CustomNavbar/CustomNavbar';
 import CustomJumbotron from '../../lib/CustomJumbotron/CustomJumbotron';
-import savedIcon from '../../../assets/saved.png';
+import likeIcon from '../../../assets/like.svg';
 
 const Recipe = (props) => {
   const { savedRecipes, setSavedRecipes } = useContext(RecipesContext);
@@ -80,21 +80,27 @@ const Recipe = (props) => {
         <Image className="recipe-image" src={recipe.image} fluid rounded/>
         <br/>
         <br/>
-        <p style={{fontWeight: "bold"}}>Ingredients:</p>
-        <p>{recipe.ingredients}</p>
-        <br/>
-        <p style={{fontWeight: "bold"}}>Cooking Time:</p>
-        <p>{recipe.cook_time}</p>
-        <br/>
-        <p style={{fontWeight: "bold"}}>Instructions: </p>
-        <p>{recipe.instructions}</p>
-        <Button 
+        <div className="recipe-content">
+          <p style={{fontSize: "2rem"}}><strong>{recipe.name}</strong></p>
+          <p style={{color: "#aaa", fontStyle: "italic"}}>{recipe.description}</p>
+          <br/>
+          <p>🧺<strong> Ingredients:</strong></p>
+          <p>   {recipe.ingredients}</p>
+          <br/>
+          <p>⏰<strong> Cooking Time:</strong></p>
+          <p>   {recipe.cook_time}</p>
+          <br/>
+          <p>📝<strong> Instructions:</strong></p>
+          <p>   {recipe.instructions}</p>
+          <Button 
           id="save-btn" 
           onClick={toggleSave} 
-          className={"save-btn" + (savedRecipes.includes(recipeId) ? " saved" : "")}
-        >
-          <img src={savedIcon}/>
-        </Button>
+          className={"fixed-bottom save-btn" + (savedRecipes.includes(recipeId) ? " saved" : "")}
+          >
+            <span className="save-btn-img"></span><span>Save recipe </span>
+          </Button>
+        </div>
+
       </div>
       <CustomNavbar />
     </div>

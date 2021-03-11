@@ -10,7 +10,7 @@ const CustomPagination = ({ currentRefinement, nbPages, refine, createURL }) => 
       const page = index + 1;
       const style = {
         fontWeight: currentRefinement === page ? 'bold' : '',
-        color: currentRefinement === page ? '#007bff': '#000'
+        color: currentRefinement === page ? '#fcc431': '#000'
       };
 
       return (

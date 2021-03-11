@@ -2,24 +2,22 @@
   padding: 0 2rem;
   margin-bottom: auto;
   background-color: #fff;
-  box-shadow: 1px 3px 4px #89c2ff;
+  box-shadow: 1px 3px 4px #FFD362;
   position: sticky;
   top: -1px;
   z-index: 1000;
 }
 
-.jumbotron .jumbotron-text {
-  display: inline;
-  font-weight: bold;
-  font-size: 1.5rem;
-  top: 1rem;
+.jumbotron .jumbotron-logo {
+  width: 6rem;
+  height: 3rem;
 }
 
 .jumbotron .back-btn {
   position: absolute;
   cursor: pointer;
-  left: 0.5rem;
-  top: 0.5rem;
+  left: 1.5rem;
+  top: 0.9rem;
   width: 1.2rem;
   height: 1.2rem;
   background-image: url(../../../assets/backb.svg);

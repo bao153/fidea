@@ -78,7 +78,7 @@ const Ingredients = (props) => {
           <OverlayTrigger
             className="tooltip-overlay"
             placement="bottom"
-            overlay={<Tooltip id="recipe-search-tooltip">Add <strong>ingredients</strong> to your <strong>pantry</strong></Tooltip>}
+            overlay={<Tooltip id="recipe-search-tooltip">Store <strong>ingredients</strong> in your <strong>pantry</strong> here</Tooltip>}
           >
             <FormControl
               type="text"
@@ -89,7 +89,7 @@ const Ingredients = (props) => {
           </OverlayTrigger>
 
           <InputGroup.Append>
-            <Button onClick={handleAdd} variant="outline-primary">Add to Pantry</Button>
+            <Button className="add-to-pantry-btn" onClick={handleAdd} variant="outline-warning">Add to Pantry</Button>
           </InputGroup.Append>
         </InputGroup>
 
@@ -103,9 +103,10 @@ const Ingredients = (props) => {
           /> 
           )}
           <Button 
+            style={{"font-weight": "bold"}}
             className="search-recipes-btn"
             onClick={handleSearch}
-            variant="primary"
+            variant="outline-warning"
           >
             Search Recipes 
           </Button>

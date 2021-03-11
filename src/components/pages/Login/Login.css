@@ -9,11 +9,11 @@
   border: none;
   border-radius: 4px !important;
   font-weight: bold;
-  background-color: #007bff;
+  background-color: #FFD362;
 }
 
 .RML-login-modal-mode > div.active {
-  background-color: #007bff;
+  background-color: #FFD362;
   box-shadow: 1px 3px 4px #15030a;
 }
 
@@ -29,11 +29,15 @@
 }
 
 .RML-login-modal-mode > div {
-  color: #fff;
+  color: black;
   font-weight: bold;
-  background-color: #89c2ff;
+  background-color: #f9e8bb;
   border-left: 0 !important;
   border-bottom: 0;
+}
+
+.RML-login-modal-mode > div:hover:not(.disabled) {
+  background-color: inherit;
 }
 
 .login-btn,
@@ -48,13 +52,13 @@
   padding: 6px 12px;
   border-radius: 4px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #FFD362;
   transition: background-color 0.1s;
 }
 
 .login-btn:hover,
 .register-btn:hover {
-  background-color: #89c2ff;
+  background-color: #f9e8bb;
 }
 
 .login-btn:focus,
@@ -65,7 +69,7 @@
 
 .login-btn:focus,
 .register-btn:focus {
-  background-color: #007bff;
+  background-color: #FFD362;
 }
 
 

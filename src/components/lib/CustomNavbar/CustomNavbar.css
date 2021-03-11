@@ -1,5 +1,12 @@
 .navbar {
   display: block;
+  /*height: 4rem;*/
+  /*width: 100%;*/
+  border: 0.1rem solid #eee;
+  border-top-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  background-color: #fff !important;
+  /*box-shadow: 1px 1px 3px 2px#FFD362;*/
 }
 
 .nav-link img {
@@ -16,11 +23,15 @@
 }
 
 .nav-link:hover {
-  background-color: #89c2ff;
+  background-color: #f9e8bb;
   box-shadow: 1px 3px 4px#15030a;
 }
 
 .nav-link.active {
-  background-color: #007bff;
+  background-color: #FFD362;
   box-shadow: 1px 3px 4px #15030a;
+}
+
+.nav-link div {
+  font-size: 0.5rem;
 }

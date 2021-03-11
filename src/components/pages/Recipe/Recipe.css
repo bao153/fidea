@@ -6,36 +6,74 @@
   overflow-x: hidden;
   padding-top: 1.5rem;
   padding-bottom: 2rem;
-  margin: 0rem 1rem 3rem 1rem;
+  margin: 0rem 2rem 8rem 2rem;
 }
 
 .recipe .recipe-container .recipe-image {
+  text-align: center;
   object-fit: cover;
   object-position: center;
-  width: 80%;
+  width: 85%;
   height: 13rem;
   box-shadow: 2px 2px 5px 4px rgba(0,0,0,0.5);
 }
 
+.recipe-container .recipe-content {
+  text-align: initial;
+}
+
 .recipe-container .save-btn {
+  color: black;
+  margin: auto;
+  margin-bottom: 6rem;
+  z-index: 9999;
   height: 3rem;
-  width: 5rem;
+  width: 20rem;
+  font-size: 1.2rem;
+  font-weight: bold;
   border: none;
-  background-color: #333 !important;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+  background-color: #fcc431 !important;
   transition: all 0.1s ease-in-out;
   outline: none;
 }
 
 .recipe-container .save-btn:hover {
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
+  transform: scale(1.1);
+  box-shadow: 0 5px 10px 4px rgba(0,0,0,0.2);
 }
 
-.recipe-container .save-btn img {
+.recipe-container .save-btn-img {
+  display: inline-block;
+  vertical-align: middle;
+  background-size: cover;
+  background-image: url(../../../assets/like.svg);
+  width: 1.5rem;
+  height: 1.5rem;
+  transition: all 0.2s;
+}
+
+/*.recipe-container .save-btn-img {
+  display: inline-block;
+  vertical-align: middle;
+  background-image: url(../../../assets/like.svg);
   width: 1.3rem;
+  height: 1.3rem;
+}*/
+
+.recipe-container .saved .save-btn-img {
+  background-image: url(../../../assets/heart.svg);
+}
+
+.recipe-container .save-btn span {
+  color: black;
+  margin-left: 0.7rem;
+  vertical-align: middle;
 }
 
 .recipe-container .saved {
-  background-color: #ff3630 !important;
+  background-color: #fcc431 !important;
   transition: all 0.1s ease-in-out;
 }
 

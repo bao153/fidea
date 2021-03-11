@@ -3,10 +3,9 @@ import { NavLink } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
 
 import "./CustomNavbar.css";  
-import homeIcon from '../../../assets/home.png';
-import ingredientsIcon from '../../../assets/ingredients.png';
-import savedIcon from '../../../assets/saved.png';
-import profileIcon from '../../../assets/profile.png';
+import homeIcon from '../../../assets/home.svg';
+import ingredientsIcon from '../../../assets/ingredients.svg';
+import savedIcon from '../../../assets/like.svg';
 
 const CustomNavbar = (props) => {
   const [activeKey, setActiveKey] = useState('/home');
@@ -17,7 +16,7 @@ const CustomNavbar = (props) => {
 
   return (
       <Navbar 
-        bg="dark" variant="dark" 
+        bg="light" variant="light" 
         fixed="bottom"
       >
           <Nav onSelect={handleSelect} 
@@ -27,16 +26,18 @@ const CustomNavbar = (props) => {
           >
             <Nav.Link as={NavLink} to="/home" eventKey="home">
               <img src={homeIcon} />
+              <div>Home</div>
             </Nav.Link>
             
             <Nav.Link className="ingredients-link" as={NavLink} to="/ingredients" eventKey="ingredients">
-              <img src={ingredientsIcon} /></Nav.Link>
+              <img src={ingredientsIcon} />
+              <div>Ingredients</div>
+            </Nav.Link>
 
             <Nav.Link as={NavLink} to="/saved" eventKey="saved">
-              <img src={savedIcon} /></Nav.Link>
-
-            {/*<Nav.Link as={NavLink} to="/profile" eventKey="profile">
-              <img src={profileIcon} /></Nav.Link>*/}
+              <img src={savedIcon} />
+              <div>Saved</div>
+            </Nav.Link>
           </Nav>
       </Navbar>
   )

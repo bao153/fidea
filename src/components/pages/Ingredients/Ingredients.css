@@ -19,6 +19,21 @@
   margin-bottom: 3rem;
 }
 
+.ingredients-container .add-to-pantry-btn {
+  font-weight: bold;
+  transition: all 0.2s ease-in-out;
+}
+
+.ingredients-container .add-to-pantry-btn:focus {
+  /*color: #fff;*/
+}
+
+.ingredients-container .add-to-pantry-btn:hover {
+  /*color: #fff;*/
+  border-color: transparent;
+  background-color: #fcc431;
+}
+
 .ingredient-cards {
   margin-top: 5rem;
   margin-bottom: 2.5rem;

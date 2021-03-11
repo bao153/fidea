@@ -38,10 +38,10 @@
   border-top-right-radius: 0.7rem;
   border-top-left-radius: 0.7rem;
   transition: all 0.05s;
+  background-color: #FFD362;
 }
 
 .recipe-card .card-header:hover {
-  background-color: #eee;
   box-shadow: 0 4px 15px 0 rgba(0,0,0,0.2);
   cursor: pointer;
 }

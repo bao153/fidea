@@ -12,23 +12,25 @@ const CustomTooltip = (props) => {
 
   useEffect(() => {
     if (props.Home && !props.Ingredients && !props.Saved) {
-      setContent(`<strong>1.</strong> Think of an ingredient you want to have in your recipe
+      setContent(`<strong>1.</strong> Think of an ingredient you want to have in your recipe 🤔
                 <br/>
-                <strong>2.</strong> Put that ingredient in the search box below
+                <strong>2.</strong> Put that ingredient in the search box below 🔍
                 <br/>
-                <strong>3.</strong> Get recipes based on that ingredient!`);
+                <strong>3.</strong> Get recipes based on that ingredient! 🍲
+                <br/>
+                (<strong>Bonus:</strong> Save a recipe by clicking 🖤)`);
     } else if (!props.Home && props.Ingredients && !props.Saved) {
-      setContent(`<strong>1.</strong> Enter your ingredients into the pantry
+      setContent(`<strong>1.</strong> Enter your ingredients into the pantry ➕
                 <br/>
-                <strong>2.</strong> Click (or unclick) the ingredient cards below to customize your recipe search 
+                <strong>2.</strong> Click (or unclick) the ingredient cards below to customize your recipe search 🥗
                 <br/>
-                <strong>3.</strong> Simply use the search button to get recipes!`);
+                <strong>3.</strong> Simply use the search button to get recipes! 😉`);
     } else if (!props.Home && !props.Ingredients && props.Saved) {
-      setContent(`<strong>1.</strong> Go to view your saved recipes by clicking on them
+      setContent(`<strong>1.</strong> View your saved recipes by clicking on them 🧐
                 <br/>
-                <strong>2.</strong> Unsave recipes by clicking the heart icon 
+                <strong>2.</strong> Unsave recipes by clicking ❤️
                 <br/>
-                <strong>3.</strong> Save lots of them so you won't have to go back searching for them!`);
+                <strong>3.</strong> Save lots of them so you won't have to go back searching for them! 💾`);
     }
   }, [])
   return (
